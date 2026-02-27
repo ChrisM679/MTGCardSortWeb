@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MTG Card Search</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo"> MTG Card Search</div>
+                <nav>
+                    <a href="Home.html">Home</a>
+                    <a href="#search">Search</a>
+                    <a href="#results">Results</a>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero" id="search">
+            <div class="container">
+                <h1>Search Magic: The Gathering Cards</h1>
+                <p>Searches cards directly from the Scryfall API.</p>
+
+                <form id="search-form" class="search-form">
+                    <label for="card-query" class="visually-hidden">Card name or query</label>
+                    <input id="card-query" name="query" type="text" placeholder="Try: lightning bolt, t:dragon, cmc<=3" required>
+
+                    <button type="submit" class="cta-button">Search</button>
+                </form>
+
+                <p id="status-message" class="status-message" aria-live="polite">Enter a card query to begin.</p>
+
+                <section class="search-legend" aria-label="Search key legend">
+                    <h2>Search Key Legend</h2>
+                    <ul>
+                        <li><strong>Type:</strong> <code>t:dragon</code> or <code>type:artifact</code></li>
+                        <li><strong>Mana Color:</strong> <code>c:r</code> (red), <code>c:wu</code> (white/blue)</li>
+                        <li><strong>Mana Value:</strong> <code>mv=3</code>, <code>mv&lt;=2</code> (also supports <code>cmc</code>)</li>
+                        <li><strong>Edition (Set):</strong> <code>set:neo</code>, <code>set:mh3</code></li>
+                        <li><strong>Name:</strong> <code>name:"lightning bolt"</code> or plain <code>lightning bolt</code></li>
+                    </ul>
+                    <p class="legend-tip">Combine keys like <code>t:creature c:g mv&lt;=3 set:bro</code></p>
+                </section>
+            </div>
+        </section>
+
+        <section class="results-section" id="results">
+            <div class="container">
+                <h2>Results</h2>
+                <div id="results-grid" class="results-grid" aria-live="polite"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 MTG Card Search</p>
+            <p>Magic: The Gathering is a trademark of Wizards of the Coast.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
